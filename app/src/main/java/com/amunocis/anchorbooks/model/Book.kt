@@ -1,7 +1,7 @@
-package com.amunocis.anchorbooks
+package com.amunocis.anchorbooks.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "book_table")
-data class book(@PrimaryKey val id: Int)
+data class Book(@PrimaryKey val id: Int)
