@@ -12,6 +12,6 @@ interface DetailDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAllDetailList(listDetail: List<Detail>)
 
-    @Query("SELECT * FROM detail_table WHERE id = 1")
+    @Query("SELECT * FROM detail_table WHERE id = :id")
     suspend fun getAllDetail(id: Int): LiveData<List<Detail>>
 }

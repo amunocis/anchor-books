@@ -14,7 +14,7 @@ import com.amunocis.anchorbooks.model.remote.fromInternetToDetailEntity
 class BookRepository(private val bookDao: BookDao, private val detailDao: DetailDao) {
     private val networkService = RetrofitInstance.retrofitInstance()
     val dataFromInternet = MutableLiveData<List<BookWrapper>>()
-    val listAllBooks: LiveData<List<Book>> = bookDao.getAllBookList()
+    val bookListLiveData: LiveData<List<Book>> = bookDao.getAllBookList()
 
     suspend fun fetchBooksData() {
         val service = kotlin.runCatching { networkService.fetchBookList() }
@@ -40,5 +40,9 @@ class BookRepository(private val bookDao: BookDao, private val detailDao: Detail
                 }
             }
         }
+    }
+
+    fun getBookById(id: Int): LiveData<Book> {
+        return bookDao.getBookById(id)
     }
 }
