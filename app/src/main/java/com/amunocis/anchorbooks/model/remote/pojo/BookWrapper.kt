@@ -1,4 +1,4 @@
-package com.amunocis.anchorbooks.model.remote
+package com.amunocis.anchorbooks.model.remote.pojo
 
 import com.google.gson.annotations.SerializedName
 

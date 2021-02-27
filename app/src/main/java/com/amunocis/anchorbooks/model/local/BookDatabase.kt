@@ -4,7 +4,8 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.amunocis.anchorbooks.model.Book
+import com.amunocis.anchorbooks.model.local.dao.BookDao
+import com.amunocis.anchorbooks.model.local.entities.Book
 
 
 @Database(entities = [Book::class], version = 1, exportSchema = false)

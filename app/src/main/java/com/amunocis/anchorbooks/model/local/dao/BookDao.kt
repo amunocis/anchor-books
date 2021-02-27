@@ -1,11 +1,11 @@
-package com.amunocis.anchorbooks.model.local
+package com.amunocis.anchorbooks.model.local.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.amunocis.anchorbooks.model.Book
+import com.amunocis.anchorbooks.model.local.entities.Book
 
 
 @Dao
