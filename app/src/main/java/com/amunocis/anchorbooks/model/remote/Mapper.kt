@@ -19,22 +19,18 @@ fun fromInternetToBookEntity(list: List<BookWrapper>): List<Book> {
     return bookList
 }
 
-fun fromInternetToDetailEntity(list: List<DetailWrapper>): List<Detail> {
-    val detailList = mutableListOf<Detail>()
-    list.map {
-        detailList.add(Detail(
-            it.id,
-            it.author,
-            it.country,
-            it.imageLink,
-            it.language,
-            it.link,
-            it.pages,
-            it.title,
-            it.year,
-            it.price,
-            it.lastPrice,
-            it.delivery))
-    }
-    return detailList
+fun fromInternetToDetailEntity(book: DetailWrapper, id: Int): Detail {
+    return Detail(
+            book.id,
+            book.author,
+            book.country,
+            book.imageLink,
+            book.language,
+            book.link,
+            book.pages,
+            book.title,
+            book.year,
+            book.price,
+            book.lastPrice,
+            book.delivery)
 }

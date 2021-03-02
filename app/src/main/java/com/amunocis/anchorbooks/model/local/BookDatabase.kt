@@ -5,16 +5,15 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.amunocis.anchorbooks.model.local.dao.BookDao
-import com.amunocis.anchorbooks.model.local.dao.DetailDao
 import com.amunocis.anchorbooks.model.local.entities.Book
+import com.amunocis.anchorbooks.model.local.entities.Detail
 
-
-@Database(entities = [Book::class], version = 1, exportSchema = false)
+@Database(entities = [Book::class, Detail::class], version = 4, exportSchema = false)
 abstract class BookDatabase: RoomDatabase() {
     abstract fun bookDao(): BookDao
-    abstract fun detailDao(): DetailDao
 
     companion object {
+        @Volatile
         private var INSTANCE: BookDatabase? = null
 
         fun getDatabase(context: Context): BookDatabase {
@@ -27,7 +26,7 @@ abstract class BookDatabase: RoomDatabase() {
                     context.applicationContext,
                     BookDatabase::class.java,
                     "book_database"
-                ).build()
+                ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }
